@@ -10,12 +10,17 @@ const Slice = createSlice({
     addUser: (state, action) => {
       const data = {
         id: nanoid(),
-        name: action.name,
+        name: action.payload,
       };
       state.users.push(data);
+    },
+    removeUser: (state, action) => {
+      console.log(action);
+      const data = state.users.filter((item) => item.id != action.payload);
+      state.users = data;
     },
   },
 });
 
-export const { addUser } = Slice.actions;
+export const { addUser, removeUser } = Slice.actions;
 export default Slice.reducer;
