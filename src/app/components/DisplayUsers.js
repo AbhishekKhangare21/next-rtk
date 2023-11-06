@@ -4,8 +4,10 @@
 import { useDispatch, useSelector } from "react-redux";
 
 function DisplayUsers() {
-  const userData = useSelector((state) => state.users);
+  const userData = useSelector((state) => state.usersData.users);
+  console.log(userData);
   const dispatch = useDispatch();
+
   return (
     <div className="display-user">
       <h3>User List</h3>
